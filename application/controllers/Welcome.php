@@ -19,7 +19,7 @@ class Welcome extends CI_Controller {
    } 
 
 	public function do_upload() {
-		$config['upload_path']          = '';
+		$config['upload_path']          = '/home/devolus/Applications/laravel/test-image-conx/storage/app/images/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		// $config['max_size']             = 100;
 		// $config['max_width']            = 1024;
@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 
 			$imgdata = file_get_contents($data['upload_data']['full_path']);
 
-			delete_files($data['upload_data']['full_path']);
+			unlink($data['upload_data']['full_path']);
 
 			echo $imgdata;
 		}
